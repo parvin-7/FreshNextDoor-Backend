@@ -1,6 +1,7 @@
-const admin = require("firebase-admin");
+// configs/firebaseAdmin.js
+import admin from "firebase-admin";
 
-// Load JSON from environment variable
+// Load JSON from env
 const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
 admin.initializeApp({
@@ -9,4 +10,4 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-module.exports = { admin, db }; // ✅ export using CommonJS
+export { admin, db };

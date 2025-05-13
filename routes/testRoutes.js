@@ -1,11 +1,10 @@
-// server/routes/testRoutes.js
+// routes/testRoutes.js
 import express from 'express';
-const { addTestData, getTestData } = require('../controllers/testController');
-
+import { addTestData, getTestData } from '../controllers/testController.js';
 
 const router = express.Router();
 
-router.post('/add', addTestData);
-router.get('/all', getTestData);
+router.get('/test', getTestData);
+router.post('/test', addTestData);
 
 export default router;
