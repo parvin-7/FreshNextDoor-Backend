@@ -1,6 +1,7 @@
 // server/routes/testRoutes.js
 import express from 'express';
-import { addTestData, getTestData } from '../controllers/testController.js';
+const { addTestData, getTestData } = require('../controllers/testController');
+
 
 const router = express.Router();
 

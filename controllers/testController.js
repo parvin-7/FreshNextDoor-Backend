@@ -1,11 +1,10 @@
-// server/controllers/testController.js
-import { db } from '../configs/firebaseAdmin.js';
+const { db } = require('../configs/firebaseAdmin.js'); // ✅ CommonJS
 
-export const addTestData = async (req, res) => {
+const addTestData = async (req, res) => {
   try {
     const docRef = await db.collection('testCollection').add({
       name: 'Water Bottle',
-      price:140,
+      price: 140,
     });
     res.status(200).send(`Document written with ID: ${docRef.id}`);
   } catch (err) {
@@ -13,7 +12,7 @@ export const addTestData = async (req, res) => {
   }
 };
 
-export const getTestData = async (req, res) => {
+const getTestData = async (req, res) => {
   try {
     const snapshot = await db.collection('testCollection').get();
     const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -22,3 +21,5 @@ export const getTestData = async (req, res) => {
     res.status(500).send(err.message);
   }
 };
+
+module.exports = { addTestData, getTestData }; // ✅ CommonJS export
