@@ -1,0 +1,8 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Ensure JSON files use LF
+*.json text eol=lf
+
+# Prevent Git from modifying Firebase service key
+configs/serviceAccountKey.json binary
